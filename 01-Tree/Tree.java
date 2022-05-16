@@ -1,5 +1,6 @@
 public class Tree {
   public static void main(String[] args) {
-    // Add code
+    // Introduce yourself to users
+    System.out.println("Hey there! My name is Clémi and I am learning Java!");
   }
 }
