@@ -2,13 +2,13 @@ public class Droid {
   String name;
   int batteryLevel;
 
-  public String toString() {
-    return "Bip bip bip Hello! I am a droid bip bip bip and my name is " + name + ".";
-  }
-
   public Droid(String droidName) {
     name = droidName;
     batteryLevel = 100;
+  }
+
+  public String toString() {
+    return "Bip bip bip Hello! I am a droid bip bip bip and my name is " + name + ".";
   }
 
   public void performTask(String task) {
@@ -20,10 +20,13 @@ public class Droid {
     System.out.println("Remaining battery of " + name + ": " + batteryLevel + "%");
   }
 
-  public void energyTransfer(int newBatteryLevel) {
+  public void energyTransfer(Droid droid, int amoutBatteryExchange) {
     System.out.println("Exchanging battery level bip bip");
-    this.batteryLevel = newBatteryLevel;
-    System.out.println(name + " current battery level is: " + batteryLevel);
+    System.out.println("Adding " + amoutBatteryExchange + "% to " + this.name + ".");
+    this.batteryLevel += amoutBatteryExchange;
+    droid.batteryLevel -= amoutBatteryExchange;
+    System.out.println(this.name + " current battery level is: " + batteryLevel + "%.");
+    System.out.println(droid.name + " current battery level is: " + droid.batteryLevel + "%.");
   }
 
   public static void main(String[] args) {
@@ -41,7 +44,6 @@ public class Droid {
     c3po.performTask("teaching");
     c3po.energyReport();
 
-    //r2d2.energyTransfert(c3po.batteryLevel);
-    r2d2.performTask("dancing");
+    r2d2.energyTransfer(c3po, 20);
   }
 }
